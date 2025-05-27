@@ -1,0 +1,41 @@
+name: Test and Package
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com/'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test:cov
+
+      - name: Package atm_viveros
+        run: |
+          mkdir -p dist/atm_viveros
+          cp -r libs/domain/src dist/atm_viveros
+          cp package.json dist/atm_viveros/package.json
+
+      - name: Package payment_viveros
+        run: |
+          mkdir -p dist/payment_viveros
+          cp -r libs/domain/src dist/payment_viveros
+          cp package.json dist/payment_viveros/package.json
+
+      # Aquí puedes agregar publicación real si deseas (usando token de GPR)
