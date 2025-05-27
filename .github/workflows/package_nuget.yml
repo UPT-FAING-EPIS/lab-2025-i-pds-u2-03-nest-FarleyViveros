@@ -31,11 +31,9 @@ jobs:
           mkdir -p dist/atm_viveros
           cp -r libs/domain/src dist/atm_viveros
           cp package.json dist/atm_viveros/package.json
-
+      #nuget
       - name: Package payment_viveros
         run: |
           mkdir -p dist/payment_viveros
           cp -r libs/domain/src dist/payment_viveros
           cp package.json dist/payment_viveros/package.json
-
-      # Aquí puedes agregar publicación real si deseas (usando token de GPR)
