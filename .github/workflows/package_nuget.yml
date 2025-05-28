@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Tests with Coverage
-        run: npm run test:cov
+        run: npx jest --coverage
 
       - name: Build atm_viveros Package
         run: npm pack ./libs/atm
