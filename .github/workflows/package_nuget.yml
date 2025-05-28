@@ -28,11 +28,11 @@ jobs:
         run: npm run test:cov
 
       - name: Build Package
-        run: npm pack ./libs/domain
+        run: npm pack ./libs
 
       - name: Rename Package
-        run: mv bank_domain_viveros-1.0.0.tgz bank_domain_viveros.tgz
-
+      - run: mv atm_viveros-1.0.0.tgz atm_viveros.tgz
+      
       # Simulated publish to GitHub nuget Registry
       - name: Simulated Publish to GitHub Packages
         run: echo "Simulating publish of atm_viveros.tgz to registry"

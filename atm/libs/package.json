@@ -1,6 +1,7 @@
 {
   "name": "atm_viveros",
   "version": "1.0.0",
+  "description": "Paquete ATM de Viveros",
   "main": "index.js",
   "license": "MIT"
 }

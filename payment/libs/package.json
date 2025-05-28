@@ -1,0 +1,7 @@
+{
+  "name": "payment_viveros",
+  "version": "1.0.0",
+  "description": "Paquete Payment de Viveros",
+  "main": "index.js",
+  "license": "MIT"
+}
