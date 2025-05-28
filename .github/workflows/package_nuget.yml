@@ -1,4 +1,4 @@
-name: Package NPM Modules
+name: Package Nuget Module
 
 on:
   push:
@@ -22,17 +22,17 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Tests with Coverage
-        run: npx jest --coverage
+      - name: Run Tests
+        run: npm run test:cov
 
-      - name: Build atm_viveros Package
-        run: npm pack ./libs/atm
+      - name: Build Package
+        run: npm pack ./libs/domain
 
       - name: Rename Package
-        run: mv atm-0.0.1.tgz atm_viveros.tgz
+        run: mv bank_domain_viveros-1.0.0.tgz bank_domain_viveros.tgz
 
-      # Simulated publish
+      # Simulated publish to GitHub nuget Registry
       - name: Simulated Publish to GitHub Packages
         run: echo "Simulating publish of atm_viveros.tgz to registry"
